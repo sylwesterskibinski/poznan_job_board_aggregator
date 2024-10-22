@@ -22,10 +22,13 @@ if script:
     json_data = script.string
     try:
         data = json.loads(json_data)
-        for key in data:
-            value = data[key]
-            print(value)
-            
+        offers_count = data['props']['pageProps']['data']['counterJobOffers']['offersCount']
+        for offer in data['props']['pageProps']['data']['jobOffers']['groupedOffers']:
+            offer_group_id = offer['groupId']
+            offer_job_title = offer['jobTitle']
+            company_name = offer['companyName']
+            print(company_name)
+        
 
     except:
         print("Error")
